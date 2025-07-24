@@ -14,15 +14,9 @@ COPY package*.json ./
 RUN npm install --production
 
 # 安裝 Puppeteer 所需的依賴
-RUN apk add --no-cache \
-    chromium \
-    nss \
-    freetype \
-    harfbuzz \
-    ca-certificates \
-    ttf-freefont \
-    fontconfig \
-    udev
+RUN apk add --no-cache chromium nss freetype harfbuzz ca-certificates ttf-freefont fontconfig udev libstdc++ libgcc dbus
+
+ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
 
 # 將所有應用程式檔案複製到工作目錄
 
