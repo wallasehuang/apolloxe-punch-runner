@@ -17,6 +17,7 @@ RUN npm install --production
 RUN apk add --no-cache chromium nss freetype harfbuzz ca-certificates ttf-freefont fontconfig udev libstdc++ libgcc dbus
 
 ENV PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+ENV PUPPETEER_DISABLE_DEV_SHM=true
 
 # 將所有應用程式檔案複製到工作目錄
 
