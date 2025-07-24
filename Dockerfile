@@ -13,7 +13,19 @@ COPY package*.json ./
 # 安裝專案依賴
 RUN npm install --production
 
+# 安裝 Puppeteer 所需的依賴
+RUN apk add --no-cache \
+    chromium \
+    nss \
+    freetype \
+    harfbuzz \
+    ca-certificates \
+    ttf-freefont \
+    fontconfig \
+    udev
+
 # 將所有應用程式檔案複製到工作目錄
+
 COPY . .
 
 # 暴露應用程式可能使用的端口 (如果你的應用程式有提供 Web 服務，雖然這個腳本沒有)
